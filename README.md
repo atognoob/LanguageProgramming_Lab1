@@ -30,7 +30,16 @@ import threading  # Используется для создания поток�
 ```
 def download(url):
 ```
-2.1. Разбор URL
+Разбор URL 
+
+```
+parsed_url = urlparse(url)
+    if not parsed_url.scheme or not parsed_url.netloc:
+        print("Invalid URL. Must start with http:// or https://")
+        return
+```
+3. df
+4. 
 
 
 
