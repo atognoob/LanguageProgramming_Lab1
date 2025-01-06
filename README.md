@@ -31,7 +31,7 @@ import threading  # Используется для создания поток�
 ```
 def download(url):
 ```
-**Разбор URL**
+Разбор URL
 
 ```
 # разбивает URL на компоненты: scheme (http, https), netloc (доменное имя), path (путь).
@@ -41,11 +41,11 @@ if not parsed_url.scheme or not parsed_url.netloc:
     print("Invalid URL. Must start with http:// or https://")
     return
 ```
-**Определение имени файла**
+Определение имени файла
 ```
 filename = os.path.basename(parsed_url.path) if parsed_url.path else "downloaded_file"
 ```
-**Установка HTTP/HTTPS-соединение**
+Установка HTTP/HTTPS-соединение
 ```
 conn_class = http.client.HTTPSConnection if parsed_url.scheme == "https" else http.client.HTTPConnection
 path = parsed_url.path if parsed_url.path else '/'
@@ -57,7 +57,7 @@ conn = conn_class(parsed_url.netloc)    #Устанавливается соед
 conn.request("GET", path, headers=headers)    #Отправляется HTTP-запрос GET по указанному пути path
 response = conn.getresponse()    #получает ответ от сервера
 ```
-**Проверка статуса ответа**
+Проверка статуса ответа
 ```
 if response.status != 200:
     print(f"Failed to download file. Status: {response.status}")
@@ -122,7 +122,7 @@ if __name__ == "__main__":
 ```
 python lab1.py https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3
 ```
-**Результат**
+Результат
 ```
 Downloading 'SoundHelix-Song-12.mp3'...
 Downloaded 1650000 bytes
