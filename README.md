@@ -35,12 +35,13 @@ def download(url):
 ```
 # разбивает URL на компоненты: scheme (http, https), netloc (доменное имя), path (путь).
 parsed_url = urlparse(url)
-    # Если отсутствует scheme (http:// или https://) или доменное имя (netloc), программа выводит ошибку о некорректном URL.
+    # Если отсутствует scheme или netloc, программа выводит ошибку о некорректном URL.
     if not parsed_url.scheme or not parsed_url.netloc:
         print("Invalid URL. Must start with http:// or https://")
         return
 ```
 **Определение имени файла**
+Если URL не содержит имя файла , программа сохранит файл с именем по умолчанию downloaded_file
 ```
 filename = os.path.basename(parsed_url.path) if parsed_url.path else "downloaded_file"
 ```
