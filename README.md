@@ -30,13 +30,19 @@ import threading  # Используется для создания поток�
 ```
 def download(url):
 ```
-Разбор URL 
+**Разбор URL**
 
 ```
+# разбивает URL на компоненты: scheme (http, https), netloc (доменное имя), path (путь).
 parsed_url = urlparse(url)
+    # Если отсутствует scheme (http:// или https://) или доменное имя (netloc), программа выводит ошибку о некорректном URL.
     if not parsed_url.scheme or not parsed_url.netloc:
         print("Invalid URL. Must start with http:// or https://")
         return
+```
+**Определение имени файла**
+```
+filename = os.path.basename(parsed_url.path) if parsed_url.path else "downloaded_file"
 ```
 3. df
 4. 
